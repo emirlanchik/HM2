@@ -3,27 +3,32 @@
 больше, меньше или да
 '''
 
-import random
-number = int(input("Введите число от 1 до 100: "))
 
-x = 1
-y = 100
-guess = random.randint (x, y)
-tries = 1
+from random import randint
 
-if number == guess:
-    print('С первой попытки!')
-else:
-    while guess != number:
-        if number > guess:
-            print("Загаданное число больше: ", guess)
-            x = guess
-            guess = random.randint(x, y)
-            tries += 1
-        elif number < guess:
-            print("Загаданное число меньше: ", guess)
-            y = guess
-            guess = random.randint(x, y)
-            tries += 1
-    print (number)
-    print ( tries )
+print ("В этой программе вы будете вводить число от 1 до 100."
+       "\nПосле компьютер попытается угадать ваш номер!")
+#Символ новой строки в Python — это \n . Он используется для обозначения окончания строки текста.
+number = 0
+
+while number < 1 or number >100:
+    number = int(input("\n\nВведите число, чтобы компьютер угадал: "))
+    if number > 100:
+        print ("Число должно быть меньше или равно 100!")
+    if number < 1:
+        print ("Число должно быть больше или равно 1!")
+
+guess = randint(1, 100)
+
+print ("Компьютер делает предположение...", guess)
+
+while guess != number:
+    if guess > number:
+        guess -= 1
+        guess = randint(1, guess)
+    else:
+        guess += 1
+        guess = randint(guess, 100)
+    print ("Компьютер делает предположение...", guess)
+
+print ("компьютер догадывается", guess, "и это было правильно!")
