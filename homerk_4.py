@@ -2,9 +2,6 @@ data = ["O!", 705, "Megacom", 550, "Beeline", 770]
 
 names = ['O!', 'Megacom', 'Beeline',]
 code = [705, 550, 770]
-data.append('O!')
-data.append(705)
-print(data)
 
 # Пройтись по списку data, добавить имена компаний в names и коды в code
 for g in data:
