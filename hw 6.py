@@ -2,21 +2,18 @@
 минимальное количество попыток. Программа дложна выдавать числа, а пользователь отвечать
 больше, меньше или да
 '''
-low = 1
-high = 100
-guess = (low + high)//2
-print(guess)
-my_answer = ''
-while my_answer != 'da':
-    my_answer = input()
-    if my_answer == "bolshe":
-        low = guess
-        guess = (low + high)//2
-        print(guess)
+start = 0
+end = 100
+count = 0
 
-    elif my_answer == 'menshe':
-        high = guess
-        guess = (low + high)//2
-        print(guess)
-    else:
-        print('sdelano')
+while True:
+    center = (start + end) // 2
+    count += 1
+    answer = input(f'твой номер: {center}? | greater/less/yes ')
+    if answer == 'yes':
+        print(f'Guessed in {count} attempts!')
+        break
+    elif answer == 'g':
+        start = center + 1
+    elif answer == 'l':
+        end = center - 1
